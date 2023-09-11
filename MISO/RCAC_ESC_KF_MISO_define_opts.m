@@ -1,15 +1,15 @@
-function opts = RCAC_ESC_KF_SISO_define_opts()
+function opts = RCAC_ESC_KF_MISO_define_opts()
     
-    lu = 1;                 % Single input
+    lu = 2;                 % Two inputs
     lz = 1;                 % Single output
-    indi = 3;               % Delay for gradient estimation
-    P0_G = 1e-3*eye(2);     % Initial KF covariance
-    Q = 1e-1*eye(2);        % Q matrix for KF
-    R = 1e2*eye(2);         % R marix for KF
+    indi = [2 6];               % Delay for gradient estimation
+    P0_G = 1e-4*eye(3);     % Initial KF covariance
+    Q = 1e-1*eye(3);        % Q matrix for KF
+    R = 1e-1*eye(3);         % R marix for KF
     
     Nc = 5;                 % Controller window length, Max Nc = 10, can adjust by increasing theta_out size in RCAC_ESC Simulink block
-    P0_C = 1e-1;            % Controller initial covariance
-    Ru = 0.05;              % Controller output weight
+    P0_C = 1e-3;            % Controller initial covariance
+    Ru = 0.55;              % Controller output weight
     nu = 0.2;               % Normalization parameter for controller performance variable
 
     epsi = 1e-3;            % Minimal gradient norm

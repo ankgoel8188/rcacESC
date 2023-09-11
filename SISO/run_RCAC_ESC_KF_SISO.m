@@ -3,6 +3,7 @@ clear all
 clc
 
 k_end = 1000;
+k_jump = 500;
 
 u_init = 0;
 ref_val = 5;

@@ -8,11 +8,11 @@ k_jump = 500;
 u_init = 0;
 ref_val = 5;
 
-opts = RCAC_ESC_RLS_SISO_define_opts();
+opts = RCAC_ESC_KF_SISO_line_change_define_opts();
 Nc = opts.Nc;
 
 options = simset('SrcWorkspace','current');
-out = sim('RCAC_ESC_RLS_SISO',[],options);
+out = sim('RCAC_ESC_KF_SISO_line_change',[],options);
 
 fontLatexLabels = 18;
 fontTextNotes = 18;
@@ -24,18 +24,13 @@ figure(1)
 
 set(gcf, 'color', [1 1 1]) 
 
-plot(out.tt, out.u,'linewidth',2)
-hold on
-plot(out.tt, out.ref, 'k--','linewidth',2)
-hold off
-
-legend({'$u$','$r$'},'interpreter','latex','fontsize', fontLegendLabels);
+plot(out.tt, out.pert,'linewidth',2)
 
 set(gca,'TickLabelInterpreter','latex')
 ax = gca;
 ax.FontSize = fontAxisLabels;
 
-ylabel('$u$', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
+ylabel('$\Delta u$', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
 xlabel('$k$ (step)', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
 
 grid on
@@ -45,13 +40,18 @@ figure(2)
 
 set(gcf, 'color', [1 1 1]) 
 
-plot(out.tt, out.pert,'linewidth',2)
+plot(out.tt, out.y,'linewidth',2)
+hold on
+plot(out.tt, out.ref,'k--','linewidth',2)
+hold off
+
+legend({'$y$','$r$'},'interpreter','latex','fontsize', fontLegendLabels);
 
 set(gca,'TickLabelInterpreter','latex')
 ax = gca;
 ax.FontSize = fontAxisLabels;
 
-ylabel('$\Delta u$', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
+ylabel('$y$', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
 xlabel('$k$ (step)', 'interpreter', 'latex', 'fontsize', fontLatexLabels)
 
 grid on

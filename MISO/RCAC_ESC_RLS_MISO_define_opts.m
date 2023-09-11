@@ -1,13 +1,13 @@
-function opts = RCAC_ESC_RLS_SISO_define_opts()
+function opts = RCAC_ESC_RLS_MISO_define_opts()
     
-    lu = 1;                 % Single input
+    lu = 2;                 % Two inputs
     lz = 1;                 % Single output
-    indi = 3;               % Delay for gradient estimation
-    P0_G = 1e-3*eye(2);     % Initial RLS covariance for gradient estimation
+    indi = [2 6];               % Delay for gradient estimation
+    P0_G = 1e-2*eye(3);     % Initial RLS covariance for gradient estimation
     
-    Nc = 5;                 % Controller window length, Max Nc = 10, can adjust by increasing theta_out size in RCAC_ESC Simulink block
-    P0_C = 1e-1;            % Controller initial covariance
-    Ru = 0.05;              % Controller output weight
+    Nc = 8;                 % Controller window length, Max Nc = 10, can adjust by increasing theta_out size in RCAC_ESC Simulink block
+    P0_C = 1e-2;            % Controller initial covariance
+    Ru = 0.325;              % Controller output weight
     nu = 0.2;               % Normalization parameter for controller performance variable
 
     epsi = 1e-3;            % Minimal gradient norm
