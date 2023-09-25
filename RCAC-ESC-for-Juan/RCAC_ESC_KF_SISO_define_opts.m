@@ -9,7 +9,7 @@ function opts = RCAC_ESC_KF_SISO_define_opts()
     
     Nc = 5;                 % Controller window length, Max Nc = 10, can adjust by increasing theta_out size in RCAC_ESC Simulink block
     P0_C = 1e-1;            % Controller initial covariance
-    P0_C = 1e-10;            % Controller initial covariance
+    P0_C = 1e-5;            % Controller initial covariance
     Ru = 0.05;              % Controller output weight
     nu = 0.2;               % Normalization parameter for controller performance variable
 
