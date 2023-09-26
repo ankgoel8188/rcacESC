@@ -9,7 +9,7 @@ function opts = RCAC_PID_ESC_KF_SISO_define_opts()
     
     PID_flag = 2;           % P = 1, PI = 2, PID = 3.
     P0_C = 1e-1;            % Controller initial covariance
-    Ru = 0.05;              % Controller output weight
+    Ru = 0.0;              % Controller output weight
     nu = 0.2;               % Normalization parameter for controller performance variable
 
     epsi = 1e-3;            % Minimal gradient norm

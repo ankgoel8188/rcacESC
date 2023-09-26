@@ -3,10 +3,11 @@ clear all
 clc
 
 k_end = 1000;
-k_jump = 500;
+k_jump_1 = 500;
 
 u_init = 0;
-ref_val = 5;
+ref_val_1 = 1;
+ref_val_2 = 5;
 
 opts = RCAC_PID_ESC_KF_SISO_define_opts();
 Nc_max = max(abs(opts.PID_flag(:)));

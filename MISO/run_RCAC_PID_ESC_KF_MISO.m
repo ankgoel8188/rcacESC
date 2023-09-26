@@ -6,15 +6,15 @@ k_end = 10000;
 k_jump = 3000;
 
 u_init = [0;0];
-ref_val_1 = [5; 5];
-ref_val_2 = [10; 0];
+ref_val_1 = [1; 2];
+ref_val_2 = [1.5; 2.5];
 
 opts = RCAC_PID_ESC_KF_MISO_define_opts();
 Nc_max = max(abs(opts.PID_flag(:)));
 
 options = simset('SrcWorkspace','current');
 out = sim('RCAC_PID_ESC_KF_MISO',[],options);
-
+%%
 fontLatexLabels = 18;
 fontTextNotes = 18;
 fontTextLabels = 18;
